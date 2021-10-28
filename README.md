@@ -24,6 +24,7 @@ Small app that checks your Gmail for new Rocketbook emails and sends the attache
 7. Once enabled you will be taken to this page:
 
    ![enter image description here](https://i.imgur.com/6pkfX9Xl.png)
+   
    As show click on `Create Credentials`. For this section just follow these configurations:
 	- Select an API --- **Gmail API**
 	- What data will you be accessing? --- **User data**
@@ -39,4 +40,4 @@ Small app that checks your Gmail for new Rocketbook emails and sends the attache
    On the ADD URI section just paste the `redirect uri` provided in step 4. Finally once that is done click on *Create* and download the credentials generated.
 8. Lastly, upload the credintials.json to the application via the page that was open in step 4 (The index page of the Heroku application).
 #  
-That is it! After the application will start ruining the `Rocketbook --> Github` script every 3 minutes. You will be redirected to a dashboard where you can view the info logs and force the app to run the main script at your request (This will not stop the automatic execution)
+That is it! After that the application will start ruining the `Rocketbook --> Github` script every 3 minutes. You will be redirected to a dashboard where you can view the info logs and force the app to run the main script at your request (This will not stop the automatic execution)
