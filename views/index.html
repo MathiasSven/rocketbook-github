@@ -1,0 +1,27 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Gmail Authentication</title>
+</head>
+
+<body style="display: grid; place-items: center; height: 100vh; margin: 0;">
+	<form id="form" action="/" method="post" enctype="multipart/form-data">
+		<a href="/" target="_blank" style="text-align: center; display: block;">Link to Google API</a>
+		<br>
+		Credentials Json: <input type="file" name="creds" accept=".json" required>
+		<br><br>
+		Redirect URI: <input id="uri" type="text" size=33 disabled>
+		<br><br>
+		<input type="submit" value="Submit">
+	</form>
+
+	<script>
+		document.getElementById("uri").value = window.location.hostname + '/callback';
+	</script>
+</body>
+
+</html>

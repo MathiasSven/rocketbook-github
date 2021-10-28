@@ -1,0 +1,26 @@
+{
+	"name": "Rocketbook Github",
+	"description": "Small script that checks your Gmail for new Rocketbook emails and sends them to a Github repo",
+	"logo": "https://i.imgur.com/Cjlv56C.png",
+	"repository": "https://github.com/MathiasSven/rocketbook-github",
+	"keywords": ["rocketbook", "obsidian", "script"],
+	"env": {
+		"PASSWORD": {
+		  "description": "Set in a password to access the monitor."
+		},
+		"GITHUB_TOKEN": {
+		  "description": "Github Token with repo access."
+		},
+		"GITHUB_REPO": {
+		  "description": "Github Repo in its full form, eg: Username/Repo"
+		},
+		"GITHUB_BRANCH": {
+		  "description": "Github Branch, eg: heads/master.",
+		  "value": "heads/master"
+		},
+		"GITHUB_DESTIONATION": {
+		  "description": "Github Destination, eg Folder/Subfolder; Leave blank for root",
+		  "required": false
+		}
+	}
+}

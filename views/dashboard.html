@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Dashboard</title>
+
+	<style type="text/css">
+		samp {
+			background: #000;
+			border: 3px groove #ccc;
+			color: #ccc;
+			display: block;
+			padding: 5px;
+			height: 100%;
+			overflow: auto;
+		}
+		body {
+			margin: 20px;
+			height: 85vh;
+		}
+		input {
+			margin-top: 10px;
+			font-size: 18px;
+		}
+	</style>
+</head>
+
+<body>
+	<samp>
+	</samp>
+	<form action="/force-task" method="post">
+		<input type="submit" value="Update Now">
+	</form>
+	<script>
+		let form = document.querySelector("form");
+		form.onsubmit = function (e) {
+			e.preventDefault();
+			fetch(form.action, {
+				method: "post", 
+				body: new FormData(form)
+			}).then(response => {
+				update()
+			});
+		}
+		
+		let output = document.querySelector("samp");
+		function update() {
+			fetch("/logs", {
+				method: "GET", 
+			})
+			.then(function(response) {
+				return response.text();
+			}).then(function(data) {
+				output.innerHTML = data;
+				output.scrollTop = output.scrollHeight;
+			});
+		}
+		update()
+		setInterval(update , 5000);
+	</script>
+</body>
+</html>
