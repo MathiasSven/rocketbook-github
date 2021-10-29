@@ -4,7 +4,7 @@
 # Rocketbook Github
 Small app that checks your Gmail for new Rocketbook emails and sends the attached pdf/jpeg to a specified Github repo and deletes the email.
 
-## Setup
+## Free Setup (Heroku)
 1. Create a [Personal access token](https://github.com/settings/tokens) and give it `repo` access, making note of the generated token.
 
 2. [Signup](https://signup.heroku.com/) to Heroku if you don't already have an account and deploy the app using the button bellow:
@@ -38,6 +38,16 @@ Small app that checks your Gmail for new Rocketbook emails and sends the attache
 	- Authorized redirect URIs --- **ADD URI**
 	
    On the ADD URI section just paste the `redirect uri` provided in step 4. Finally once that is done click on *Create* and download the credentials generated.
-8. Lastly, upload the credintials.json to the application via the page that was open in step 4 (The index page of the Heroku application).
+8. Upload the credintials.json to the application via the page that was open in step 4 (The index page of the Heroku application).
+
+9. Lastly, given you are running a free tier of Heroku, you will need a seperate service to ping your app at least once every 30 mins otherwise it will idle and stop running tasks. I recommend [Kaffeine](http://kaffeine.herokuapp.com/) with sleep turned on but if you find another one it should also work, though keep in mind you want one that can also stop pinging on set times because without setting a credit card Heroku only gives you about 22 days of continuous dyno operation per month as of late 2021.
 #  
 That is it! After that the application will start ruining the `Rocketbook --> Github` script every 3 minutes. You will be redirected to a dashboard where you can view the info logs and force the app to run the main script at your request (This will not stop the automatic execution)
+## Generic Setup Info
+To deploy the app use `python manage.py` and the these are the required **ENVs**:
+- GITHUB_TOKEN `An access token as described on step 1 on Free Setup`
+- GITHUB_REPO `The repo you want to push the files to`
+- GITHUB_BRANCH `The branch the files should be pushed to, eg: heads/master or heads/main`
+- GITHUB_DESTIONATION `The folder/subfolder that the files should be pushed to`
+- PASSWORD `Password to access the app`
+- PORT `Port in which the app should run`
