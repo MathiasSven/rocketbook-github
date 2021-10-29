@@ -44,7 +44,7 @@ Small app that checks your Gmail for new Rocketbook emails and sends the attache
 #  
 That is it! After that the application will start ruining the `Rocketbook --> Github` script every 3 minutes. You will be redirected to a dashboard where you can view the info logs and force the app to run the main script at your request (This will not stop the automatic execution)
 ## Generic Setup Info
-To deploy the app use `python manage.py` and the these are the required **ENVs**:
+To deploy the app use `python manage.py` and these are the required **ENVs**:
 - GITHUB_TOKEN `An access token as described on step 1 on Free Setup`
 - GITHUB_REPO `The repo you want to push the files to`
 - GITHUB_BRANCH `The branch the files should be pushed to, eg: heads/master or heads/main`
