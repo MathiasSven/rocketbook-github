@@ -30,7 +30,7 @@ except FileNotFoundError:
     exec(open(activator_path[1]).read(), {"__file__": activator_path[1]})
 
 
-run(["pip", "install", "-r", folder_path / "requirements.py"])
+run(["pip", "install", "-r", folder_path / "requirements.txt"])
 
 __version__ = "1.0"
 print("Original Repository: https://github.com/MathiasSven/rocketbook-github")
