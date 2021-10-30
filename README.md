@@ -43,6 +43,16 @@ Small app that checks your Gmail for new Rocketbook emails and sends the attache
 9. Lastly, given you are running a free tier of Heroku, you will need a seperate service to ping your app at least once every 30 mins otherwise it will idle and stop running tasks. I recommend [Kaffeine](http://kaffeine.herokuapp.com/) with sleep turned on but if you find another one it should also work, though keep in mind you want one that can also stop pinging on set times because without setting a credit card Heroku only gives you about 22 days of continuous dyno operation per month as of late 2021.
 #  
 That is it! After that the application will start ruining the `Rocketbook --> Github` script every 3 minutes. You will be redirected to a dashboard where you can view the info logs and force the app to run the main script at your request (This will not stop the automatic execution)
+## Server Setup
+1. Create a [Personal access token](https://github.com/settings/tokens) and give it `repo` access, making note of the generated token.
+
+2. Make sure both [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/) and [virutalenv](https://pypi.org/project/virtualenv/) are installed.
+
+3. `git clone` this repository where you want to have the application located.
+
+4. Run `setup.py` and provide it with the appropriate variables.
+
+5. Access your app at `http://SERVERIP:PORT`, follow steps 4-8 from the setup above and that is it! No need worry about Dyno idling.
 ## Generic Setup Info
 To deploy the app use `python manage.py` and these are the required **ENVs**:
 - GITHUB_TOKEN `An access token as described on step 1 on Free Setup`

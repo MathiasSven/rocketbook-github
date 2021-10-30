@@ -1,0 +1,14 @@
+{
+	"name": "Rocketbook-Github",
+	"script": "",
+	"interpreter": "",
+	"env": {
+		"GITHUB_TOKEN": "",
+		"GITHUB_REPO": "",
+		"GITHUB_BRANCH": "",
+		"GITHUB_DESTIONATION": "",
+		"PASSWORD": "",
+		"PORT": "8031"
+	},
+	"repo": "https://github.com/MathiasSven/rocketbook-github"
+}
