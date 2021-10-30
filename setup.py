@@ -30,7 +30,7 @@ except FileNotFoundError:
     exec(open(activator_path[1]).read(), {"__file__": activator_path[1]})
 
 
-run("pip", "install", "-r", folder_path / "requirements.py")
+run(["pip", "install", "-r", folder_path / "requirements.py"])
 
 __version__ = "1.0"
 print("Original Repository: https://github.com/MathiasSven/rocketbook-github")
@@ -57,5 +57,5 @@ if port := input("Application Port (Blank for default 8031): "):
 with open(folder_path / "ecosystem.json", "w") as f:
     json.dump(ecosystem, f)
 
-run("pm2", "start", folder_path / "ecosystem.json")
+run(["pm2", "start", folder_path / "ecosystem.json"])
 print("Done!")

@@ -1,6 +1,7 @@
 ![Logo](https://i.imgur.com/qNeteXH.png)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
+[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-360/)
 # Rocketbook Github
 Small app that checks your Gmail for new Rocketbook emails and sends the attached pdf/jpeg to a specified Github repo and deletes the email.
 
@@ -52,7 +53,7 @@ That is it! After that the application will start ruining the `Rocketbook --> Gi
 
 4. Run `setup.py` and provide it with the appropriate variables.
 
-5. Access your app at `http://SERVERIP:PORT`, follow steps 4-8 from the setup above and that is it! No need worry about Dyno idling.
+5. Access your app at `http://SERVERIP:PORT`, follow steps 4-8 from the setup above and that is it! No need to worry about Dyno idling.
 ## Generic Setup Info
 To deploy the app use `python manage.py` and these are the required **ENVs**:
 - GITHUB_TOKEN `An access token as described on step 1 on Free Setup`
