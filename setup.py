@@ -1,5 +1,5 @@
-import getpass
 import json
+from getpass import getpass
 from pathlib import Path
 from subprocess import run
 
