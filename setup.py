@@ -50,6 +50,7 @@ with open(folder_path / "ecosystem.sample.json") as f:
     ecosystem = json.load(f)
 
 ecosystem["script"] = str(folder_path / "manage.py")
+ecosystem["cwd"] = str(folder_path)
 ecosystem["interpreter"] = str(python_path)
 ecosystem["env"]["GITHUB_TOKEN"] = getpass("Github Token: ")
 ecosystem["env"]["GITHUB_REPO"] = input("The repo you want to push the files to: ")
