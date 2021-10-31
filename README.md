@@ -53,7 +53,9 @@ That is it! After that the application will start ruining the `Rocketbook --> Gi
 
 4. Run `setup.py` and provide it with the appropriate variables.
 
-5. Access your app at `http://SERVERIP:PORT`, follow steps 4-8 from the setup above and that is it! No need to worry about Dyno idling.
+5. Open the port on your firewall, `utf allow PORT` if you are using Ubuntu.
+
+6. Access your app at `http://SERVERIP:PORT`, follow steps 4-8 from the setup above and that is it! No need to worry about Dyno idling.
 ## Generic Setup Info
 To deploy the app use `python manage.py` and these are the required **ENVs**:
 - GITHUB_TOKEN `An access token as described on step 1 on Free Setup`

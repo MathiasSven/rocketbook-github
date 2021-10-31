@@ -1,6 +1,7 @@
 {
 	"name": "Rocketbook-Github",
 	"script": "",
+	"cwd": "",
 	"interpreter": "",
 	"env": {
 		"GITHUB_TOKEN": "",
