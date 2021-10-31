@@ -40,8 +40,8 @@ print("License: MIT")
 with open(folder_path / "ecosystem.sample.json") as f:
     ecosystem = json.load(f)
 
-ecosystem["script"] = folder_path / "manage.py"
-ecosystem["interpreter"] = python_path
+ecosystem["script"] = str(folder_path / "manage.py")
+ecosystem["interpreter"] = str(python_path)
 ecosystem["env"]["GITHUB_TOKEN"] = getpass("Github Token: ")
 ecosystem["env"]["GITHUB_REPO"] = input("The repo you want to push the files to: ")
 ecosystem["env"]["GITHUB_BRANCH"] = input(
