@@ -1,4 +1,5 @@
 import json
+import platform
 from getpass import getpass
 from pathlib import Path
 from subprocess import run
@@ -11,6 +12,14 @@ except ImportError:
     print('ERROR: Please intall virtualenv with "pip install virtualenv"')
     sys.exit()
 
+if not all(
+    map(
+        lambda i: int(i[0]) >= int(i[1]),
+        zip(platform.python_version_tuple()[:-1], ("3", "8")),
+    )
+):
+    print("WARNING: Softwear was only tested on Python 3.8 and above")
+
 folder_path = Path(__file__).parent.absolute()
 env_path = folder_path / "venv"
 
@@ -20,7 +29,7 @@ if not env_path.is_dir():
 activator_path = [
     env_path / f"{folder}/activate_this.py" for folder in ["bin", "Scripts"]
 ]
-python_path = [env_path / "Scripts/python" for folder in ["bin", "Scripts"]]
+python_path = [env_path / f"{folder}/python" for folder in ["bin", "Scripts"]]
 
 try:
     exec(open(activator_path[0]).read(), {"__file__": activator_path[0]})
@@ -51,7 +60,9 @@ ecosystem["env"]["GITHUB_DESTIONATION"] = input(
     "The folder/subfolder that the files should be pushed to: "
 )
 ecosystem["env"]["PASSWORD"] = getpass("Password to access the app: ")
-if port := input("Application Port (Blank for default 8031): "):
+
+port = input("Application Port (Blank for default 8031): ")
+if port:
     ecosystem["env"]["PORT"] = port
 
 with open(folder_path / "ecosystem.json", "w") as f:
