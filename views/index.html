@@ -6,21 +6,43 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Gmail Authentication</title>
+	<style type="text/css">
+		body {
+			display: grid;
+			place-items: center;
+			height: 100vh;
+			margin: 0;
+		}
+		small {
+			text-align: center;
+			display: none;
+			margin-top: 10px;
+			color: gray;
+		}
+	</style>
 </head>
 
-<body style="display: grid; place-items: center; height: 100vh; margin: 0;">
+<body>
 	<form id="form" action="/" method="post" enctype="multipart/form-data">
 		<a href="https://console.cloud.google.com/" target="_blank" style="text-align: center; display: block;">Link to Google API</a>
 		<br>
 		Credentials Json: <input type="file" name="creds" accept=".json" required>
 		<br><br>
 		Redirect URI: <input id="uri" type="text" size=33 disabled>
-		<br><br>
+		<br>
+		<small>Public IP is not supported by Google's API, using <a href="https://nip.io/" target="_blank">Wildcard DNS</a> instead</small>
+		<br>
 		<input type="submit" value="Submit">
 	</form>
 
 	<script>
-		document.getElementById("uri").value = window.location.hostname + '/callback';
+		uriElement = document.getElementById("uri");
+		if (isNaN(window.location.hostname.split(".").at(-1))) {
+			uriElement.value = window.location.origin + '/callback';
+		} else {
+			uriElement.value = window.location.origin.replace(/(:\d+)?$/m, '.nip.io$1') + '/callback';
+			document.getElementsByTagName("small").style.display = "block";
+		};
 	</script>
 </body>
 

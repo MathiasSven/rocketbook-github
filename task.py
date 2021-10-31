@@ -18,7 +18,7 @@ def gmail_authenticate():
         creds = pickle.load(token)
 
     if not creds.valid:
-        logger.warn("creds no longer valid, refreshing...")
+        logger.warning("creds no longer valid, refreshing...")
         creds.refresh(Request())
 
     return build("gmail", "v1", credentials=creds)

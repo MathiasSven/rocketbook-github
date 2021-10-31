@@ -53,7 +53,7 @@ def index():
         if os.path.exists("token.pickle"):
             logger.info("token.pickle already exists, redirecting to dashboard")
             return redirect("/dashboard")
-        logger.warn("token.pickle was not found, Oauth flow needed")
+        logger.warning("token.pickle was not found, Oauth flow needed")
         return template("index")
     elif request.method == "POST":
         creds_config = json.load(request.files.get("creds").file)
