@@ -94,7 +94,7 @@ def logs():
 @route("/force-task", method="POST")
 @restricted
 def force_task():
-    logger.info("Forced task recieved")
+    logger.info("Forced update now task recieved")
     task.main()
     response.status = 200
     return response
@@ -104,5 +104,5 @@ if __name__ == "__main__":
     if os.path.exists("token.pickle"):
         logger.info("Starting RepeatTimer to run main task every 3 minutes")
         RepeatTimer(3 * 60, task.main).start()
-    logger.info("Starting server")
+    logger.info("Starting webserver")
     run(host="0.0.0.0", port=int(os.environ["PORT"]))

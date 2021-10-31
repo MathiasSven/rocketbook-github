@@ -18,7 +18,7 @@ def gmail_authenticate():
         creds = pickle.load(token)
 
     if not creds.valid:
-        logger.warning("creds no longer valid, refreshing...")
+        logger.warning("Creds no longer valid, refreshing...")
         creds.refresh(Request())
 
     return build("gmail", "v1", credentials=creds)
@@ -44,6 +44,7 @@ def search_messages(service, query):
 
 def commit_push(files):
     g = Github(os.environ["GITHUB_TOKEN"])
+    logger.info("Authenticated Github")
     repo = g.get_repo(os.environ["GITHUB_REPO"])
     ref = repo.get_git_ref(os.environ["GITHUB_BRANCH"])
     commit = repo.get_commit(ref.object.sha)
@@ -77,9 +78,9 @@ def commit_push(files):
 
 
 def main():
-    logger.info("Starting main task")
+    logger.info("## Starting main task ##")
     service = gmail_authenticate()
-    logger.info("Authenticated")
+    logger.info("Authenticated Gmail")
     results = search_messages(service, "from:notes@email.getrocketbook.com")
     logger.info(f"Found {len(results)} new emails")
     files = []
@@ -127,4 +128,4 @@ def main():
         service.users().messages().batchDelete(
             userId="me", body={"ids": [msg["id"] for msg in results]}
         ).execute()
-    logger.info("Finished main task")
+    logger.info("## Finished main task ##")
