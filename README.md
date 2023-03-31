@@ -5,7 +5,9 @@
 # Rocketbook Github
 Small app that checks your Gmail for new Rocketbook emails and sends the attached pdf/jpeg to a specified Github repo and deletes the email.
 
-## Free Setup (Heroku)
+I initially created this because I was using [Obsidian](https://obsidian.md/) as my notetaking app with its plugin for git integration, making a setup like this the easiest way to get my Rocketbook notes to Obsidian. I still use Obsidian but have swapped Rocketbook for an iPad with the Apple Pencil so I no longer need this utility, however it is a pretty simple application, so as long either Github or Google haven't changed their APIs this should still work.
+
+## Free Setup (Heroku) ~~Might not be upto date as I think Heroku stopped their free pans~~
 1. Create a [Personal access token](https://github.com/settings/tokens) and give it `repo` access, making note of the generated token.
 
 2. [Signup](https://signup.heroku.com/) to Heroku if you don't already have an account and deploy the app using the button bellow:
